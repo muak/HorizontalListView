@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:hl="clr-namespace:HorizontalListView;assembly=HorizontalListView"
+	xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+	prism:ViewModelLocator.AutowireViewModel="True" 
+	x:Class="Sample.Views.MainPage" Title="MainPage">
+	<StackLayout VerticalOptions="FillAndExpand">
+		<hl:HorizontalListView ItemsSource="{Binding ItemsSource}" HeightRequest="150" ColumnWidth="150"
+                               VerticalOptions="Start" BackgroundColor="Silver">
+            <x:Arguments>
+                <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+            </x:Arguments>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="{Binding Color}" HeightRequest="150" WidthRequest="{Binding Width}">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </hl:HorizontalListView>
+        <Label Text="HorizontalListView" />
+	</StackLayout>
+</ContentPage>
